@@ -421,6 +421,116 @@
       .footer-grid { grid-template-columns: 1fr; }
       section { padding: 72px 5%; }
     }
+
+    /* ── STRATEGY MODAL ── */
+    .modal-overlay {
+      display: none; position: fixed; inset: 0; z-index: 999;
+      background: rgba(7, 9, 15, 0.85);
+      backdrop-filter: blur(8px);
+      align-items: center; justify-content: center;
+      padding: 20px;
+    }
+    .modal-overlay.open { display: flex; }
+
+    .modal-box {
+      background: var(--bg-card);
+      border: 0.5px solid var(--border-strong);
+      border-radius: 24px;
+      width: 100%; max-width: 580px;
+      max-height: 90vh; overflow-y: auto;
+      padding: 44px 44px 40px;
+      position: relative;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.6);
+      animation: modal-in 0.28s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    @keyframes modal-in {
+      from { opacity: 0; transform: scale(0.92) translateY(18px); }
+      to   { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    .modal-close {
+      position: absolute; top: 18px; right: 20px;
+      background: none; border: none; color: var(--text-muted);
+      font-size: 22px; cursor: pointer; line-height: 1;
+      transition: color 0.2s;
+    }
+    .modal-close:hover { color: var(--text); }
+
+    .modal-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--primary-glow); border: 0.5px solid var(--border-strong);
+      color: var(--primary); font-size: 11px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 5px 14px; border-radius: 99px; margin-bottom: 18px;
+    }
+    .modal-badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--primary); animation: blink 2s infinite; }
+
+    .modal-title {
+      font-family: 'Manrope', sans-serif;
+      font-size: 26px; font-weight: 800;
+      letter-spacing: -0.02em; margin-bottom: 6px;
+    }
+    .modal-sub { font-size: 14px; color: var(--text-muted); margin-bottom: 30px; line-height: 1.6; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-group { margin-bottom: 16px; }
+    .form-group.full { grid-column: 1 / -1; }
+
+    .form-label {
+      display: block; font-size: 12px; font-weight: 600;
+      color: var(--text-muted); margin-bottom: 7px; letter-spacing: 0.04em;
+    }
+    .form-label span { color: var(--primary); }
+
+    .form-input, .form-select, .form-textarea {
+      width: 100%; background: rgba(255,255,255,0.04);
+      border: 0.5px solid var(--border-strong);
+      border-radius: 10px; padding: 11px 14px;
+      color: var(--text); font-family: 'Inter', sans-serif;
+      font-size: 14px; outline: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .form-input::placeholder, .form-textarea::placeholder { color: var(--text-dim); }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--primary); background: rgba(94,124,255,0.06);
+    }
+    .form-select { appearance: none; cursor: pointer; }
+    .form-select option { background: #0D1220; }
+    .form-textarea { resize: vertical; min-height: 88px; }
+
+    .modal-submit {
+      width: 100%; margin-top: 24px;
+      background: var(--primary); color: #fff;
+      border: none; border-radius: 12px;
+      padding: 15px 20px; font-size: 15px; font-weight: 700;
+      font-family: 'Inter', sans-serif; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      transition: all 0.22s;
+    }
+    .modal-submit:hover:not(:disabled) { background: var(--primary-dark); transform: translateY(-2px); }
+    .modal-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+
+    .modal-success {
+      display: none; text-align: center; padding: 20px 0;
+    }
+    .modal-success-icon { font-size: 52px; margin-bottom: 16px; }
+    .modal-success h3 {
+      font-family: 'Manrope', sans-serif; font-size: 22px;
+      font-weight: 800; margin-bottom: 10px;
+    }
+    .modal-success p { font-size: 14px; color: var(--text-muted); line-height: 1.65; }
+
+    .modal-error {
+      display: none; background: rgba(255,80,80,0.1);
+      border: 0.5px solid rgba(255,80,80,0.35);
+      border-radius: 10px; padding: 12px 16px;
+      font-size: 13px; color: #ff6b6b; margin-top: 14px;
+    }
+
+    @media (max-width: 580px) {
+      .modal-box { padding: 32px 22px 28px; }
+      .form-row { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -437,7 +547,7 @@
     <li><a href="#stats">Results</a></li>
     <li><a href="#process">Process</a></li>
   </ul>
-  <button class="btn-nav" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">
+  <button class="btn-nav" onclick="openStrategyModal()">
     Get a Free Demo
   </button>
 </nav>
@@ -701,9 +811,9 @@
     <h2>Ready to Turn AI Into Your<br><span style="color: var(--primary);">Competitive Advantage?</span></h2>
     <p>Book a free 30-minute strategy session with our AI experts.<br>No obligations. Just clarity on what AI can do for your business.</p>
     <div class="cta-btns">
-      <a href="mailto:hello@syfoai.com" class="btn-primary" style="font-size: 16px; padding: 17px 38px;">
+      <button class="btn-primary" style="font-size: 16px; padding: 17px 38px;" onclick="openStrategyModal()">
         Book Free Strategy Call →
-      </a>
+      </button>
       <a href="#services" class="btn-outline" style="font-size: 16px; padding: 17px 38px;">
         See Our Services
       </a>
@@ -754,6 +864,102 @@
     <p class="footer-copy">Built with Advanced AI Technology</p>
   </div>
 </footer>
+
+<!-- STRATEGY BOOKING MODAL -->
+<div class="modal-overlay" id="strategyModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeStrategyModal()" aria-label="Close">&times;</button>
+
+    <div id="modalFormContent">
+      <div class="modal-badge">
+        <span class="modal-badge-dot"></span>
+        Free 30-Min Session
+      </div>
+      <h2 class="modal-title" id="modalTitle">Book Your Free Strategy Call</h2>
+      <p class="modal-sub">Tell us about your business and we'll show you exactly how AI can multiply your revenue.</p>
+
+      <form id="strategyForm" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="sf_name">Full Name <span>*</span></label>
+            <input class="form-input" type="text" id="sf_name" name="full_name" placeholder="John Smith" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="sf_email">Email Address <span>*</span></label>
+            <input class="form-input" type="email" id="sf_email" name="email" placeholder="john@company.com" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="sf_phone">Phone Number</label>
+            <input class="form-input" type="tel" id="sf_phone" name="phone" placeholder="+1 555 000 0000">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="sf_company">Company / Business Name</label>
+            <input class="form-input" type="text" id="sf_company" name="company_name" placeholder="Acme Corp">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="sf_industry">Industry</label>
+            <select class="form-select" id="sf_industry" name="industry">
+              <option value="" disabled selected>Select industry…</option>
+              <option>E-Commerce</option>
+              <option>SaaS / Tech</option>
+              <option>Agency / Marketing</option>
+              <option>Healthcare</option>
+              <option>Retail</option>
+              <option>Fintech</option>
+              <option>Real Estate</option>
+              <option>Education</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="sf_revenue">Monthly Revenue</label>
+            <select class="form-select" id="sf_revenue" name="monthly_revenue">
+              <option value="" disabled selected>Select range…</option>
+              <option>Under $10K</option>
+              <option>$10K – $50K</option>
+              <option>$50K – $100K</option>
+              <option>$100K – $500K</option>
+              <option>$500K+</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="sf_challenge">Biggest Business Challenge</label>
+          <textarea class="form-textarea" id="sf_challenge" name="biggest_challenge" placeholder="e.g. We struggle to qualify leads quickly, our support team is overwhelmed…"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="sf_time">Preferred Call Time</label>
+          <select class="form-select" id="sf_time" name="preferred_call_time">
+            <option value="" disabled selected>Select a time slot…</option>
+            <option>Morning (9 AM – 12 PM)</option>
+            <option>Afternoon (12 PM – 4 PM)</option>
+            <option>Evening (4 PM – 7 PM)</option>
+            <option>Flexible / Any time</option>
+          </select>
+        </div>
+
+        <div class="modal-error" id="modalError"></div>
+        <button type="submit" class="modal-submit" id="submitBtn">
+          Confirm My Free Strategy Call →
+        </button>
+      </form>
+    </div>
+
+    <div class="modal-success" id="modalSuccess">
+      <div class="modal-success-icon">🎉</div>
+      <h3>You're Booked!</h3>
+      <p>Thanks for reaching out.<br>Our AI strategy expert will contact you within <strong>24 hours</strong> to confirm your session.<br><br>Check your inbox for a confirmation email.</p>
+    </div>
+  </div>
+</div>
 
 <script>
 /* ── NAVBAR SCROLL ── */
@@ -861,6 +1067,82 @@ const cntObs = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.4 });
 counters.forEach(c => cntObs.observe(c));
+
+/* ── STRATEGY MODAL ── */
+const STRATEGY_API_URL = 'https://syfoaisolution-offical-backend.onrender.com/api/book-strategy';
+
+function openStrategyModal() {
+  const overlay = document.getElementById('strategyModal');
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  document.getElementById('strategyForm').reset();
+  document.getElementById('modalFormContent').style.display = '';
+  document.getElementById('modalSuccess').style.display = 'none';
+  document.getElementById('modalError').style.display = 'none';
+  document.getElementById('submitBtn').disabled = false;
+  document.getElementById('submitBtn').textContent = 'Confirm My Free Strategy Call →';
+}
+
+function closeStrategyModal() {
+  document.getElementById('strategyModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('strategyModal').addEventListener('click', function(e) {
+  if (e.target === this) closeStrategyModal();
+});
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeStrategyModal();
+});
+
+document.getElementById('strategyForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+
+  const errorEl = document.getElementById('modalError');
+  const submitBtn = document.getElementById('submitBtn');
+  errorEl.style.display = 'none';
+
+  const fullName = document.getElementById('sf_name').value.trim();
+  const email = document.getElementById('sf_email').value.trim();
+  if (!fullName || !email) {
+    errorEl.textContent = 'Please fill in your name and email — they are required.';
+    errorEl.style.display = 'block';
+    return;
+  }
+
+  const payload = {
+    full_name: fullName,
+    email: email,
+    phone: document.getElementById('sf_phone').value.trim() || null,
+    company_name: document.getElementById('sf_company').value.trim() || null,
+    industry: document.getElementById('sf_industry').value || null,
+    monthly_revenue: document.getElementById('sf_revenue').value || null,
+    biggest_challenge: document.getElementById('sf_challenge').value.trim() || null,
+    preferred_call_time: document.getElementById('sf_time').value || null,
+  };
+
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Submitting…';
+
+  try {
+    const res = await fetch(STRATEGY_API_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.detail || 'Something went wrong. Please try again.');
+
+    document.getElementById('modalFormContent').style.display = 'none';
+    document.getElementById('modalSuccess').style.display = 'block';
+  } catch (err) {
+    errorEl.textContent = err.message || 'Failed to submit. Please try again or email us directly.';
+    errorEl.style.display = 'block';
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Confirm My Free Strategy Call →';
+  }
+});
 </script>
 </body>
 </html>
