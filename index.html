@@ -3,8 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Syfo AI Solution — We Multiply Your Revenue</title>
+  <title>Syfo AI Solution — AI Chatbots, Automation & Revenue Growth</title>
+
+  <!-- Primary SEO Meta Tags -->
+  <meta name="description" content="Syfo AI Solution builds AI chatbots, workflow automation, and e-commerce AI that multiply your revenue. Get 40%+ sales increase with AI-native solutions delivered 3× faster. Book a free strategy call today.">
+  <meta name="keywords" content="AI solution, AI chatbots, workflow automation, AI integration, e-commerce AI, artificial intelligence, business automation, revenue growth, AI agency, lead generation AI, sales automation">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="author" content="Syfo AI Solution">
+  <link rel="canonical" href="https://syfoai.com/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://syfoai.com/">
+  <meta property="og:site_name" content="Syfo AI Solution">
+  <meta property="og:title" content="Syfo AI Solution — AI Chatbots, Automation & Revenue Growth">
+  <meta property="og:description" content="We build AI chatbots, workflow automation & e-commerce intelligence that deliver 40%+ sales lift. Book a free 30-min strategy call with our AI experts.">
+  <meta property="og:image" content="https://syfoai.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Syfo AI Solution — We Multiply Your Revenue">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@syfoai">
+  <meta name="twitter:creator" content="@syfoai">
+  <meta name="twitter:title" content="Syfo AI Solution — AI Chatbots, Automation & Revenue Growth">
+  <meta name="twitter:description" content="We build AI chatbots, workflow automation & e-commerce intelligence that deliver 40%+ sales lift. Book a free 30-min strategy call today.">
+  <meta name="twitter:image" content="https://syfoai.com/og-image.png">
+  <meta name="twitter:image:alt" content="Syfo AI Solution — We Multiply Your Revenue">
+
+  <!-- Performance & Browser Hints -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta name="theme-color" content="#07090F">
+  <meta name="msapplication-TileColor" content="#5E7CFF">
+  <meta name="format-detection" content="telephone=no">
+
+  <!-- Favicon & App Icons -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -199,7 +239,6 @@
       padding: 16px 0; border-bottom: 0.5px solid var(--border);
     }
     .metric-row:last-of-type { border-bottom: none; }
-    .metric-label-group {}
     .metric-label { font-size: 13px; color: var(--text-muted); margin-bottom: 8px; }
     .metric-bar-track {
       width: 200px; height: 4px;
@@ -531,12 +570,52 @@
       .modal-box { padding: 32px 22px 28px; }
       .form-row { grid-template-columns: 1fr; }
     }
+
+    /* ── SKIP LINK ── */
+    .skip-link {
+      position: absolute; top: -50px; left: 16px;
+      background: var(--primary); color: #fff;
+      padding: 10px 18px; z-index: 9999;
+      font-size: 14px; font-weight: 600;
+      text-decoration: none; border-radius: 0 0 8px 8px;
+      transition: top 0.2s;
+    }
+    .skip-link:focus { top: 0; }
+
+    /* ── FAQ ── */
+    #faq { background: var(--bg); }
+    .faq-list { max-width: 760px; margin: 0 auto; }
+    .faq-item { border-bottom: 0.5px solid var(--border); }
+    .faq-item:first-child { border-top: 0.5px solid var(--border); }
+    .faq-q {
+      width: 100%; background: none; border: none; padding: 22px 0;
+      text-align: left; font-family: 'Inter', sans-serif;
+      font-size: 16px; font-weight: 600; color: var(--text);
+      cursor: pointer; display: flex; justify-content: space-between;
+      align-items: center; gap: 16px; transition: color 0.2s;
+    }
+    .faq-q:hover { color: var(--primary); }
+    .faq-q::after {
+      content: '+'; font-size: 24px; line-height: 1;
+      color: var(--primary); flex-shrink: 0;
+      transition: transform 0.3s ease;
+    }
+    .faq-q[aria-expanded="true"]::after { transform: rotate(45deg); }
+    .faq-a {
+      font-size: 15px; color: var(--text-muted); line-height: 1.78;
+      max-height: 0; overflow: hidden; padding-bottom: 0;
+      transition: max-height 0.38s ease, padding-bottom 0.38s ease;
+    }
+    .faq-item.open .faq-a { max-height: 220px; padding-bottom: 22px; }
   </style>
 </head>
 <body>
 
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header>
 <!-- NAVBAR -->
-<nav class="nav" id="navbar">
+<nav class="nav" id="navbar" aria-label="Main navigation">
   <a href="#" class="nav-logo">
     <span class="syfo">Syfo</span><span class="dot">.</span>
     <span class="sub">AI Solution</span>
@@ -551,6 +630,9 @@
     Get a Free Demo
   </button>
 </nav>
+</header>
+
+<main id="main-content">
 
 <!-- HERO -->
 <section class="hero" id="home">
@@ -804,6 +886,44 @@
   </div>
 </section>
 
+<!-- FAQ -->
+<section id="faq" aria-labelledby="faq-heading">
+  <div class="fade-in section-center">
+    <div class="section-eyebrow">FAQ</div>
+    <h2 class="section-title" id="faq-heading">
+      Frequently Asked <span style="color: var(--primary);">Questions</span>
+    </h2>
+    <p class="section-sub">Everything you need to know about working with Syfo AI Solution.</p>
+  </div>
+
+  <div class="faq-list fade-in">
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false" aria-controls="faq-a1">What exactly does Syfo AI Solution build?</button>
+      <div class="faq-a" id="faq-a1" role="region">We build AI chatbots &amp; virtual assistants, workflow automation systems, AI integrations for existing apps, and e-commerce AI solutions — all engineered to directly increase your revenue and reduce operational costs.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false" aria-controls="faq-a2">How long does it take to go live?</button>
+      <div class="faq-a" id="faq-a2" role="region">Most projects launch within 2–6 weeks. Our AI-first development framework and pre-built modules let us deliver production-ready solutions 3× faster than traditional agencies.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false" aria-controls="faq-a3">Do you work with our existing tools and software?</button>
+      <div class="faq-a" id="faq-a3" role="region">Yes — we layer AI into your current stack without requiring a full rebuild. We integrate with CRMs, e-commerce platforms, support desks, and custom software via API with zero disruption to what's already working.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false" aria-controls="faq-a4">What results can we realistically expect?</button>
+      <div class="faq-a" id="faq-a4" role="region">Our clients see an average 40%+ increase in sales, 60% reduction in response time, and 3× improvement in lead conversion. Every solution is tied to measurable KPIs from day one — we only build features that move the numbers that matter.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false" aria-controls="faq-a5">Is the free strategy call really free with no obligations?</button>
+      <div class="faq-a" id="faq-a5" role="region">Absolutely. The 30-minute session is 100% free with no obligation or pressure. Our AI strategists audit your business, identify the highest-value AI opportunities, and give you a clear action plan — whether you work with us or not.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false" aria-controls="faq-a6">Do you offer ongoing support after launch?</button>
+      <div class="faq-a" id="faq-a6" role="region">Yes. We provide continuous post-launch optimization — monitoring performance, retraining AI models on your live data, and releasing improvements. Your system gets measurably smarter every week after go-live.</div>
+    </div>
+  </div>
+</section>
+
 <!-- CTA -->
 <section id="cta">
   <div class="cta-box fade-in">
@@ -820,6 +940,8 @@
     </div>
   </div>
 </section>
+
+</main>
 
 <!-- FOOTER -->
 <footer>
@@ -853,9 +975,9 @@
       <h4>Connect</h4>
       <ul>
         <li><a href="mailto:hello@syfoai.com">hello@syfoai.com</a></li>
-        <li><a href="#">LinkedIn</a></li>
-        <li><a href="#">Twitter / X</a></li>
-        <li><a href="#">Instagram</a></li>
+        <li><a href="https://linkedin.com/company/syfoai" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="https://twitter.com/syfoai" target="_blank" rel="noopener noreferrer">Twitter / X</a></li>
+        <li><a href="https://instagram.com/syfoai" target="_blank" rel="noopener noreferrer">Instagram</a></li>
       </ul>
     </div>
   </div>
@@ -1068,6 +1190,22 @@ const cntObs = new IntersectionObserver((entries) => {
 }, { threshold: 0.4 });
 counters.forEach(c => cntObs.observe(c));
 
+/* ── FAQ ACCORDION ── */
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  });
+});
+
 /* ── STRATEGY MODAL ── */
 const STRATEGY_API_URL = 'https://syfoaisolution-offical-backend.onrender.com/api/book-strategy';
 
@@ -1143,6 +1281,165 @@ document.getElementById('strategyForm').addEventListener('submit', async functio
     submitBtn.textContent = 'Confirm My Free Strategy Call →';
   }
 });
+</script>
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://syfoai.com/#organization",
+      "name": "Syfo AI Solution",
+      "url": "https://syfoai.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://syfoai.com/logo.png",
+        "width": 200,
+        "height": 60
+      },
+      "description": "Syfo AI Solution builds AI chatbots, workflow automation, AI integrations, and e-commerce AI solutions that multiply business revenue.",
+      "email": "hello@syfoai.com",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "hello@syfoai.com",
+        "contactType": "customer support",
+        "availableLanguage": "English"
+      },
+      "sameAs": [
+        "https://linkedin.com/company/syfoai",
+        "https://twitter.com/syfoai",
+        "https://instagram.com/syfoai"
+      ],
+      "areaServed": "Worldwide",
+      "knowsAbout": ["Artificial Intelligence", "Chatbot Development", "Workflow Automation", "E-Commerce AI", "Machine Learning", "Business Automation"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://syfoai.com/#website",
+      "url": "https://syfoai.com",
+      "name": "Syfo AI Solution",
+      "description": "AI chatbots, workflow automation & e-commerce AI that multiply your revenue.",
+      "publisher": { "@id": "https://syfoai.com/#organization" },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://syfoai.com/#webpage",
+      "url": "https://syfoai.com",
+      "name": "Syfo AI Solution — AI Chatbots, Automation & Revenue Growth",
+      "description": "Syfo AI Solution combines next-gen AI with deep business expertise — delivering chatbots, workflow automation, AI integrations, and e-commerce intelligence that make your business faster and your sales stronger.",
+      "isPartOf": { "@id": "https://syfoai.com/#website" },
+      "about": { "@id": "https://syfoai.com/#organization" },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://syfoai.com/#service",
+      "name": "Syfo AI Solution",
+      "url": "https://syfoai.com",
+      "description": "AI-native development agency specializing in chatbots, workflow automation, AI integrations, and e-commerce AI for revenue growth.",
+      "provider": { "@id": "https://syfoai.com/#organization" },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "AI Solutions",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "AI Chatbots & Assistants",
+              "description": "24/7 intelligent bots that qualify leads, answer customers instantly, and book appointments — trained on your exact business data and brand voice."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Workflow Automation",
+              "description": "Eliminate repetitive manual tasks. Automate approvals, follow-ups, data sync, and reporting — saving your team hundreds of hours every month."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "AI Integration into Existing Apps",
+              "description": "Layer in powerful AI capabilities — smart search, predictive analytics, auto-tagging, recommendations — without rebuilding your stack from scratch."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "E-Commerce AI Solutions",
+              "description": "Personalized recommendations, dynamic pricing, cart recovery, and AI-powered product discovery that directly and measurably lift your revenue."
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
+</script>
+
+<!-- FAQPage Rich Result (standalone for maximum Google compatibility) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What exactly does Syfo AI Solution build?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We build AI chatbots & virtual assistants, workflow automation systems, AI integrations for existing apps, and e-commerce AI solutions — all engineered to directly increase your revenue and reduce operational costs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does it take to go live?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most projects launch within 2–6 weeks. Our AI-first development framework and pre-built modules let us deliver production-ready solutions 3× faster than traditional agencies."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you work with our existing tools and software?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — we layer AI into your current stack without requiring a full rebuild. We integrate with CRMs, e-commerce platforms, support desks, and custom software via API with zero disruption to what's already working."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What results can we realistically expect?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our clients see an average 40%+ increase in sales, 60% reduction in response time, and 3× improvement in lead conversion. Every solution is tied to measurable KPIs from day one."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the free strategy call really free with no obligations?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely. The 30-minute session is 100% free with no obligation or pressure. Our AI strategists audit your business, identify the highest-value AI opportunities, and give you a clear action plan — whether you work with us or not."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you offer ongoing support after launch?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We provide continuous post-launch optimization — monitoring performance, retraining AI models on your live data, and releasing improvements. Your system gets measurably smarter every week after go-live."
+      }
+    }
+  ]
+}
 </script>
 </body>
 </html>
