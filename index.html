@@ -41,8 +41,9 @@
   <meta name="format-detection" content="telephone=no">
 
   <!-- Favicon & App Icons -->
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
@@ -90,15 +91,14 @@
       border-bottom: 0.5px solid var(--border);
       padding: 13px 6%;
     }
-    .nav-logo {
-      font-family: 'Manrope', sans-serif;
-      font-weight: 800; font-size: 22px;
-      display: flex; align-items: center; gap: 4px;
-      text-decoration: none; letter-spacing: -0.02em;
+    /* ── BRAND LOGO ── */
+    .logo-link { display: inline-flex; align-items: center; text-decoration: none; }
+    .logo-img {
+      height: 46px; width: auto; display: block;
+      transition: height 0.35s ease;
     }
-    .nav-logo .syfo { color: var(--text); }
-    .nav-logo .dot { color: var(--primary); }
-    .nav-logo .sub { color: var(--text-muted); font-size: 12px; font-weight: 500; margin-left: 6px; letter-spacing: 0; }
+    .nav.scrolled .logo-img { height: 38px; }
+    footer .logo-img { height: 44px; }
 
     .nav-links { display: flex; gap: 36px; list-style: none; }
     .nav-links a {
@@ -616,9 +616,8 @@
 <header>
 <!-- NAVBAR -->
 <nav class="nav" id="navbar" aria-label="Main navigation">
-  <a href="#" class="nav-logo">
-    <span class="syfo">Syfo</span><span class="dot">.</span>
-    <span class="sub">AI Solution</span>
+  <a href="#" class="logo-link" aria-label="Syfo AI Solution — home">
+    <img class="logo-img" src="logo.png" alt="Syfo AI Solution" width="1066" height="379">
   </a>
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
@@ -947,9 +946,8 @@
 <footer>
   <div class="footer-grid">
     <div>
-      <a href="#" class="nav-logo" style="font-size: 20px; text-decoration:none;">
-        <span class="syfo">Syfo</span><span class="dot">.</span>
-        <span class="sub" style="font-size:11px;">AI Solution</span>
+      <a href="#" class="logo-link" aria-label="Syfo AI Solution">
+        <img class="logo-img" src="logo.png" alt="Syfo AI Solution" width="1066" height="379">
       </a>
       <p class="footer-brand-text">We don't just build apps — we build AI systems that accelerate your growth and multiply your revenue, continuously.</p>
     </div>
