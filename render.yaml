@@ -1,0 +1,19 @@
+# Render Blueprint — https://render.com/docs/blueprint-spec
+# Deploys the Vite + React marketing site as a Render Static Site.
+services:
+  - type: web
+    name: syfoaisolution-frontend
+    runtime: static
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
+    # Auto-deploy on every push to the connected branch
+    autoDeploy: true
+    # SPA fallback: serve the app for any path
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    # VITE_ vars are baked into the build at build time
+    envVars:
+      - key: VITE_STRATEGY_API_URL
+        value: https://syfoaisolution-offical-backend.onrender.com/api/book-strategy
