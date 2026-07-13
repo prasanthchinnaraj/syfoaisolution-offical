@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 const SERVICES = [
   {
     icon: '🤖',
@@ -53,6 +55,10 @@ export default function Services() {
             </div>
           </div>
         ))}
+      </div>
+
+      <div className="services-more fade-in">
+        <Link to="/services" className="btn-outline">Explore All Services in Detail →</Link>
       </div>
     </section>
   )

@@ -1,11 +1,13 @@
+import { Link } from 'react-router-dom'
+
 export default function Footer() {
   return (
     <footer>
       <div className="footer-grid">
         <div>
-          <a href="#home" className="logo-link" aria-label="Syfo AI Solution">
+          <Link to="/" className="logo-link" aria-label="Syfo AI Solution">
             <img className="logo-img" src="/logo-dark.png" alt="Syfo AI Solution" width="1066" height="379" />
-          </a>
+          </Link>
           <p className="footer-brand-text">
             We don't just build apps — we build AI systems that accelerate your growth and
             multiply your revenue, continuously.
@@ -15,20 +17,20 @@ export default function Footer() {
         <div className="footer-col">
           <h4>Services</h4>
           <ul>
-            <li><a href="#services">AI Chatbots</a></li>
-            <li><a href="#services">Workflow Automation</a></li>
-            <li><a href="#services">AI Integration</a></li>
-            <li><a href="#services">E-Commerce AI</a></li>
+            <li><Link to="/services#chatbots">AI Chatbots</Link></li>
+            <li><Link to="/services#automation">Workflow Automation</Link></li>
+            <li><Link to="/services#integration">AI Integration</Link></li>
+            <li><Link to="/services#ecommerce">E-Commerce AI</Link></li>
           </ul>
         </div>
 
         <div className="footer-col">
           <h4>Company</h4>
           <ul>
-            <li><a href="#why">About Syfo</a></li>
-            <li><a href="#stats">Case Studies</a></li>
-            <li><a href="#process">Process</a></li>
-            <li><a href="#faq">FAQ</a></li>
+            <li><Link to="/about">About Syfo</Link></li>
+            <li><Link to="/#testimonials">Client Stories</Link></li>
+            <li><Link to="/#process">Process</Link></li>
+            <li><Link to="/#faq">FAQ</Link></li>
           </ul>
         </div>
 

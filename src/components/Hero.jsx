@@ -1,6 +1,16 @@
+import { useEffect, useState } from 'react'
 import NeuralCanvas from './NeuralCanvas'
 
+const WORDS = ['Revenue.', 'Sales.', 'Growth.', 'Profits.']
+
 export default function Hero() {
+  const [wordIdx, setWordIdx] = useState(0)
+
+  useEffect(() => {
+    const timer = setInterval(() => setWordIdx((i) => (i + 1) % WORDS.length), 2600)
+    return () => clearInterval(timer)
+  }, [])
+
   return (
     <section className="hero" id="home">
       <NeuralCanvas />
@@ -11,10 +21,17 @@ export default function Hero() {
           Powered by Advanced AI
         </div>
         <h1>
-          We Don't Just<br />
-          Build Apps.<br />
-          We <span className="h1-grad">Multiply</span><br />
-          Your <span className="h1-accent">Revenue.</span>
+          <span className="h1-line"><span className="h1-line-inner">We Don't Just</span></span>
+          <span className="h1-line"><span className="h1-line-inner">Build Apps.</span></span>
+          <span className="h1-line"><span className="h1-line-inner">We <span className="h1-grad h1-multiply">Multiply</span></span></span>
+          <span className="h1-line">
+            <span className="h1-line-inner">
+              Your{' '}
+              <span className="word-rotator">
+                <span className="word" key={wordIdx}>{WORDS[wordIdx]}</span>
+              </span>
+            </span>
+          </span>
         </h1>
         <p className="hero-desc">
           Syfo AI Solution combines next-gen AI with deep business expertise — delivering
@@ -25,14 +42,23 @@ export default function Hero() {
           <a href="#cta" className="btn-primary">Start Your AI Journey →</a>
           <a href="#services" className="btn-outline">See What We Build</a>
         </div>
-        <div className="trust-signals">
-          <div className="trust-item"><span className="trust-dot"></span>3× Faster Delivery</div>
-          <div className="trust-item"><span className="trust-dot"></span>40%+ Sales Lift</div>
-          <div className="trust-item"><span className="trust-dot"></span>AI-First Approach</div>
+        <div className="hero-proof">
+          <div className="proof-avatars" aria-hidden="true">
+            <span className="proof-avatar">AM</span>
+            <span className="proof-avatar">PR</span>
+            <span className="proof-avatar">DK</span>
+            <span className="proof-avatar">ST</span>
+            <span className="proof-avatar proof-more">+46</span>
+          </div>
+          <div className="proof-text">
+            <span className="proof-stars" aria-hidden="true">★★★★★</span>
+            <span>Trusted by <strong>50+ growing businesses</strong></span>
+          </div>
         </div>
       </div>
 
       <div className="hero-visual">
+        <div className="visual-chip chip-top"><span className="chip-dot"></span>AI Assistant — Online</div>
         <div className="metrics-card">
           <div className="card-header">
             <span className="card-title">Client Impact Dashboard</span>
@@ -80,7 +106,13 @@ export default function Hero() {
             </div>
           </div>
         </div>
+        <div className="visual-chip chip-bottom">📈 +42% revenue this quarter</div>
       </div>
+
+      <a href="#why" className="scroll-cue" aria-label="Scroll to explore">
+        <span className="scroll-mouse"><span className="scroll-wheel"></span></span>
+        Scroll to explore
+      </a>
     </section>
   )
 }

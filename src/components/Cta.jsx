@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 export default function Cta({ onOpenModal }) {
   return (
     <section id="cta">
@@ -19,9 +21,9 @@ export default function Cta({ onOpenModal }) {
           >
             Book Free Strategy Call →
           </button>
-          <a href="#services" className="btn-outline" style={{ fontSize: '16px', padding: '17px 38px' }}>
+          <Link to="/services" className="btn-outline" style={{ fontSize: '16px', padding: '17px 38px' }}>
             See Our Services
-          </a>
+          </Link>
         </div>
       </div>
     </section>

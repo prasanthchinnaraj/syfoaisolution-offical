@@ -1,13 +1,18 @@
 import { useEffect } from 'react'
 
 /**
- * Reveals any element with the `.fade-in` class as it scrolls into view
- * by adding the `.visible` class (mirrors the original IntersectionObserver).
- * Re-runs whenever `deps` change so dynamically rendered nodes get observed.
+ * Reveals any element with a reveal class (`.fade-in`, `.reveal-left`,
+ * `.reveal-right`, `.reveal-zoom`) as it scrolls into view by adding the
+ * `.visible` class. Re-runs whenever `deps` change (e.g. route changes)
+ * so dynamically rendered nodes get observed.
  */
+const SELECTOR = ['.fade-in', '.reveal-left', '.reveal-right', '.reveal-zoom']
+  .map((cls) => `${cls}:not(.visible)`)
+  .join(', ')
+
 export default function useScrollReveal(deps = []) {
   useEffect(() => {
-    const fadeEls = document.querySelectorAll('.fade-in:not(.visible)')
+    const fadeEls = document.querySelectorAll(SELECTOR)
     if (!fadeEls.length) return
 
     const observer = new IntersectionObserver(
