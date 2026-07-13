@@ -5,7 +5,7 @@ export default function Cta({ onOpenModal }) {
         <div className="cta-glow"></div>
         <h2>
           Ready to Turn AI Into Your<br />
-          <span style={{ color: 'var(--primary)' }}>Competitive Advantage?</span>
+          <span className="cta-highlight">Competitive Advantage?</span>
         </h2>
         <p>
           Book a free 30-minute strategy session with our AI experts.<br />

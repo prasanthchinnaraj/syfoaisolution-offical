@@ -13,7 +13,7 @@ export default function Navbar({ onOpenModal }) {
   return (
     <nav className={`nav${scrolled ? ' scrolled' : ''}`} id="navbar" aria-label="Main navigation">
       <a href="#home" className="logo-link" aria-label="Syfo AI Solution — home">
-        <img className="logo-img" src="/logo.png" alt="Syfo AI Solution" width="1066" height="379" />
+        <img className="logo-img" src="/logo-dark.png" alt="Syfo AI Solution" width="1066" height="379" />
       </a>
       <ul className="nav-links">
         <li><a href="#services">Services</a></li>

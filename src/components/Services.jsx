@@ -32,7 +32,7 @@ export default function Services() {
         <div className="section-eyebrow">What We Build</div>
         <h2 className="section-title">
           Advanced AI Solutions<br />
-          Tailored to <span style={{ color: 'var(--gold)' }}>Your Business</span>
+          Tailored to <span style={{ color: 'var(--accent)' }}>Your Business</span>
         </h2>
         <p className="section-sub">
           From intelligent chatbots to full workflow automation — we build AI that works while

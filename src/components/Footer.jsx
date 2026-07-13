@@ -4,7 +4,7 @@ export default function Footer() {
       <div className="footer-grid">
         <div>
           <a href="#home" className="logo-link" aria-label="Syfo AI Solution">
-            <img className="logo-img" src="/logo.png" alt="Syfo AI Solution" width="1066" height="379" />
+            <img className="logo-img" src="/logo-dark.png" alt="Syfo AI Solution" width="1066" height="379" />
           </a>
           <p className="footer-brand-text">
             We don't just build apps — we build AI systems that accelerate your growth and

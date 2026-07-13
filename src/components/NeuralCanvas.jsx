@@ -43,7 +43,7 @@ export default function NeuralCanvas() {
 
         ctx.beginPath()
         ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(94,124,255,${0.6 * n.a})`
+        ctx.fillStyle = `rgba(0,55,199,${0.5 * n.a})`
         ctx.fill()
       })
 
@@ -57,7 +57,7 @@ export default function NeuralCanvas() {
             ctx.beginPath()
             ctx.moveTo(nodes[i].x, nodes[i].y)
             ctx.lineTo(nodes[j].x, nodes[j].y)
-            ctx.strokeStyle = `rgba(94,124,255,${alpha})`
+            ctx.strokeStyle = `rgba(30,91,255,${alpha})`
             ctx.lineWidth = 0.6
             ctx.stroke()
           }

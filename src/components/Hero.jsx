@@ -13,7 +13,7 @@ export default function Hero() {
         <h1>
           We Don't Just<br />
           Build Apps.<br />
-          We <span className="h1-gold">Multiply</span><br />
+          We <span className="h1-grad">Multiply</span><br />
           Your <span className="h1-accent">Revenue.</span>
         </h1>
         <p className="hero-desc">
@@ -43,10 +43,10 @@ export default function Hero() {
             <div className="metric-label-group">
               <div className="metric-label">Revenue Growth</div>
               <div className="metric-bar-track">
-                <div className="metric-bar-fill bar-anim" style={{ width: '78%', background: 'var(--teal)' }}></div>
+                <div className="metric-bar-fill bar-anim" style={{ width: '78%', background: 'var(--accent)' }}></div>
               </div>
             </div>
-            <div className="metric-val val-teal">+42%</div>
+            <div className="metric-val val-accent">+42%</div>
           </div>
 
           <div className="metric-row">
@@ -63,10 +63,10 @@ export default function Hero() {
             <div className="metric-label-group">
               <div className="metric-label">Lead Conversion</div>
               <div className="metric-bar-track">
-                <div className="metric-bar-fill bar-anim" style={{ width: '55%', background: 'var(--gold)', animationDelay: '0.6s' }}></div>
+                <div className="metric-bar-fill bar-anim" style={{ width: '55%', background: 'linear-gradient(90deg, #0037C7, #1E5BFF)', animationDelay: '0.6s' }}></div>
               </div>
             </div>
-            <div className="metric-val val-gold">+3×</div>
+            <div className="metric-val val-mid">+3×</div>
           </div>
 
           <div className="mini-grid">
