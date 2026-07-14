@@ -28,7 +28,8 @@ export default function NeuralCanvas() {
 
     function init() {
       nodes = []
-      for (let i = 0; i < 65; i++) nodes.push(makeNode())
+      const count = W < 640 ? 26 : W < 1024 ? 42 : 65
+      for (let i = 0; i < count; i++) nodes.push(makeNode())
     }
 
     function tick() {

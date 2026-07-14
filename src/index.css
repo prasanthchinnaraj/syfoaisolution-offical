@@ -414,8 +414,9 @@ footer .logo-img { height: 44px; }
 }
 .metric-row:last-of-type { border-bottom: none; }
 .metric-label { font-size: 13px; color: var(--text-muted); margin-bottom: 8px; }
+.metric-label-group { flex: 1; padding-right: 16px; }
 .metric-bar-track {
-  width: 200px; height: 4px;
+  width: 100%; max-width: 200px; height: 4px;
   background: var(--bg-soft); border-radius: 99px; overflow: hidden;
 }
 .metric-bar-fill { height: 100%; border-radius: 99px; }
@@ -705,9 +706,12 @@ footer {
 
 /* ── RESPONSIVE ── */
 @media (max-width: 960px) {
-  .hero { grid-template-columns: 1fr; padding: 110px 5% 70px; }
-  .hero-visual { display: none; }
+  .hero { grid-template-columns: 1fr; padding: 112px 5% 64px; gap: 48px; min-height: auto; }
+  .hero-visual { max-width: 470px; width: 100%; margin: 0 auto; }
   .scroll-cue { display: none; }
+  .chip-top { left: -6px; top: -14px; }
+  .chip-bottom { right: -4px; bottom: -12px; }
+  .hero-desc { max-width: none; }
   .why-grid { grid-template-columns: 1fr 1fr; }
   .services-grid { grid-template-columns: 1fr; }
   .stats-grid { grid-template-columns: 1fr 1fr; }
@@ -729,15 +733,67 @@ footer {
 }
 
 @media (max-width: 580px) {
+  /* Layout */
+  section { padding: 64px 5%; }
   .why-grid { grid-template-columns: 1fr; }
-  .stats-grid { grid-template-columns: 1fr 1fr; }
+  .stats-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
   .footer-grid { grid-template-columns: 1fr; }
-  section { padding: 72px 5%; }
   .values-grid { grid-template-columns: 1fr; }
-  .ts-person { flex-wrap: wrap; }
-  .ts-quote { font-size: 16.5px; }
-  .sd-visual { min-height: 280px; }
+
+  /* Hero */
+  .hero { padding: 100px 5% 52px; gap: 38px; }
+  .hero h1 { font-size: clamp(33px, 9.6vw, 40px); margin-bottom: 20px; }
+  .hero-desc { font-size: 15.5px; margin-bottom: 28px; }
+  .hero-ctas { gap: 12px; margin-bottom: 32px; }
+  .hero-ctas .btn-primary, .hero-ctas .btn-outline { width: 100%; justify-content: center; }
+  .hero-proof { gap: 12px; }
+  .proof-text { font-size: 12.5px; }
+  .proof-avatar { width: 34px; height: 34px; font-size: 10.5px; }
+  .eyebrow { margin-bottom: 20px; }
+
+  /* Metrics card */
+  .metrics-card { padding: 22px; }
+  .metric-val { font-size: 21px; }
+  .mini-val { font-size: 19px; }
+  .visual-chip { font-size: 11px; padding: 8px 12px; }
+
+  /* Shared type */
+  .section-title { font-size: clamp(25px, 7.4vw, 32px); }
+  .section-sub { font-size: 15px; margin-bottom: 40px; }
+  .stat-num { font-size: clamp(32px, 9vw, 42px); }
+
+  /* Marquee */
+  .marquee-group { gap: 28px; padding-right: 28px; }
+
+  /* Testimonials */
+  .ts-person { flex-wrap: wrap; row-gap: 10px; }
+  .ts-result { margin-left: 0; }
+  .ts-quote { font-size: 16px; }
+  .ts-controls { gap: 14px; }
+
+  /* CTA */
+  .cta-box h2 { font-size: clamp(23px, 6.8vw, 28px); }
+  .cta-box p { font-size: 15px; margin-bottom: 28px; }
+  .cta-btns { gap: 12px; }
+  .cta-btns .btn-primary, .cta-btns .btn-outline { width: 100%; justify-content: center; }
+
+  /* Sub-pages */
+  .page-header { padding: 118px 5% 52px; }
+  .services-detail { padding: 20px 5% 60px; }
+  .sd-visual { min-height: 270px; }
+  .sd-visual-icon { font-size: 72px; }
+  .sd-stat { padding: 10px 14px; }
+  .sd-stat-val { font-size: 18px; }
+  .mission-card { padding: 32px 26px; }
   .contact-form-card { padding: 28px 20px; }
+
+  /* FAQ + footer */
+  .faq-q { font-size: 15px; padding: 18px 0; }
+  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+
+  /* Modal + forms */
+  .modal-box { padding: 32px 22px 28px; border-radius: 18px; }
+  .form-row { grid-template-columns: 1fr; gap: 0; }
 }
 
 /* ── STRATEGY MODAL ── */

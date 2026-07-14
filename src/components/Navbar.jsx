@@ -25,6 +25,14 @@ export default function Navbar({ onOpenModal }) {
     setMenuOpen(false)
   }, [location.pathname])
 
+  // Lock body scroll while the mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : ''
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [menuOpen])
+
   return (
     <nav
       className={`nav${scrolled || menuOpen ? ' scrolled' : ''}`}
